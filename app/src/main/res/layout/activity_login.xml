@@ -5,13 +5,15 @@
     android:id="@+id/layout"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:background="@drawable/background"
+    android:backgroundTintMode="add"
     android:orientation="vertical"
     tools:context=".LoginActivity">
 
     <ImageView
         android:id="@+id/imageView"
         android:layout_width="match_parent"
-        android:layout_height="88dp"
+        android:layout_height="60dp"
         android:layout_alignParentStart="true"
         android:layout_alignParentTop="true"
         android:layout_marginStart="0dp"
@@ -60,7 +62,12 @@
         android:layout_marginTop="20dp"
         android:layout_marginEnd="20dp"
         android:layout_weight="1"
-        android:text="Log in" />
+        android:backgroundTint="#03A9F4"
+        android:backgroundTintMode="multiply"
+        android:shadowColor="#872020"
+        android:text="Log in"
+        android:textColorHighlight="#C68484"
+        android:textColorLink="#FFFFFF" />
 
     <Button
         android:id="@+id/btn_sign"
@@ -72,5 +79,10 @@
         android:layout_marginTop="20dp"
         android:layout_marginEnd="20dp"
         android:layout_weight="1"
+        android:backgroundTint="#03A9F4"
+        android:backgroundTintMode="src_in"
         android:text="Sign in" />
+
+
+
 </RelativeLayout>
