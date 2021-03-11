@@ -50,6 +50,7 @@ public class ComposeFragment extends Fragment {
     public String photoFileName = "photo.jpg";
 
 
+
     public ComposeFragment() {
         // Required empty public constructor
     }
@@ -115,7 +116,7 @@ public class ComposeFragment extends Fragment {
 
     }
 
-    private void launchCamera() {
+    public void launchCamera() {
 
         Intent intent = new Intent(MediaStore.ACTION_IMAGE_CAPTURE);
         // Create a File reference for future access

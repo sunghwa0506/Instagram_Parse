@@ -7,26 +7,18 @@
     android:background="@color/white"
     tools:context=".MainActivity">
 
-
-    <ImageView
-        android:id="@+id/imageView"
-        android:layout_width="match_parent"
-        android:layout_height="60dp"
-        android:layout_alignParentStart="true"
-        android:layout_alignParentTop="true"
-        android:layout_marginStart="0dp"
-        android:layout_marginTop="0dp"
-        android:layout_weight="1"
-        app:srcCompat="@drawable/nav_logo_whiteout" />
-
     <FrameLayout
         android:id="@+id/flContainer"
-        android:layout_width="match_parent"
-        android:layout_height="611dp"
+        android:layout_width="397dp"
+        android:layout_height="match_parent"
         android:layout_above="@+id/bottomNavigationView"
         android:layout_below="@+id/imageView"
-        android:layout_marginTop="0dp"
-        android:layout_marginBottom="0dp">
+        android:layout_marginStart="10dp"
+        android:layout_marginLeft="10dp"
+        android:layout_marginTop="10dp"
+        android:layout_marginEnd="10dp"
+        android:layout_marginRight="10dp"
+        android:layout_marginBottom="10dp">
 
     </FrameLayout>
 
@@ -35,6 +27,8 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_alignParentBottom="true"
-        app:menu="@menu/menu_bottom_navigation" />
+        app:menu="@menu/menu_bottom_navigation" >
+
+    </com.google.android.material.bottomnavigation.BottomNavigationView>
 
 </RelativeLayout>

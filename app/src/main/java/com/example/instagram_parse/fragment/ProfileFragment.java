@@ -1,8 +1,15 @@
 package com.example.instagram_parse.fragment;
 
+import android.os.Bundle;
 import android.util.Log;
+import android.view.LayoutInflater;
+import android.view.View;
+import android.view.ViewGroup;
+
+import androidx.recyclerview.widget.RecyclerView;
 
 import com.example.instagram_parse.Post;
+import com.example.instagram_parse.R;
 import com.parse.FindCallback;
 import com.parse.ParseException;
 import com.parse.ParseQuery;
@@ -11,6 +18,7 @@ import com.parse.ParseUser;
 import java.util.List;
 
 public class ProfileFragment extends PostsFragment {
+
 
     @Override
     protected void queryposts() {

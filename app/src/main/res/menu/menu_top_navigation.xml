@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto">
+    <item
+        android:id="@+id/Account_btn"
+        android:orderInCategory="100"
+
+        android:title="Account"
+        app:showAsAction="never" />
+
+    <item
+        android:id="@+id/logout_btn"
+        android:icon="@drawable/instagram_user_filled_24"
+
+        android:orderInCategory="200"
+        android:title="Logout"
+        app:showAsAction="never" />
+</menu>

@@ -14,7 +14,6 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 
-import com.example.instagram_parse.EndlessRecyclerViewScrollListener;
 import com.example.instagram_parse.Post;
 import com.example.instagram_parse.PostsAdapter;
 import com.example.instagram_parse.R;
@@ -27,11 +26,11 @@ import java.util.List;
 
 public class PostsFragment extends Fragment {
 
-    private RecyclerView rv_View;
+    protected RecyclerView rv_View;
     protected PostsAdapter adapter;
     protected List<Post> allpost;
     SwipeRefreshLayout swipeContainer;
-    private EndlessRecyclerViewScrollListener scrollListener;
+
 
     public PostsFragment() {
         // Required empty public constructor
@@ -79,39 +78,7 @@ public class PostsFragment extends Fragment {
         });
 
 
-        scrollListener = new EndlessRecyclerViewScrollListener(layoutManager) {
-            @Override
-            public void onLoadMore(int page, int totalItemsCount, RecyclerView view) {
-                Log.i("this","onLoadMore"+ page);
-                adapter.getItemCount();
-                loadmoreData();
-            }
 
-            private void loadmoreData() {
-                ParseQuery<Post> query = ParseQuery.getQuery(Post.class);
-                query.include(Post.KEY_USER);
-                query.addDescendingOrder("createdAt");
-                query.findInBackground(new FindCallback<Post>() {
-                    @Override
-                    public void done(List<Post> posts, ParseException e) {
-
-                        if(e!=null)
-                        {
-                            Log.e("Main","Issue with getting posts",e);
-                        }
-
-                        for(Post post: posts)
-                        {
-                            Log.i("Post","Post "+ post.getKeyDescription());
-                        }
-                        allpost.addAll(posts);
-                        adapter.notifyDataSetChanged();
-                    }
-                });
-            }
-        };
-
-        rv_View.addOnScrollListener(scrollListener);
         queryposts();
 
     }
@@ -119,7 +86,6 @@ public class PostsFragment extends Fragment {
     protected void queryposts() {
         ParseQuery<Post> query = ParseQuery.getQuery(Post.class);
         query.include(Post.KEY_USER);
-        query.setLimit(20);
         query.addDescendingOrder("createdAt");
         query.findInBackground(new FindCallback<Post>() {
             @Override
