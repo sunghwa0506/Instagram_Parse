@@ -76,7 +76,7 @@ public class CommentsAdapter extends RecyclerView.Adapter<CommentsAdapter.ViewHo
             comment.setText(comments.getString("Comments"));
             ParseObject comuser = comments.getParseUser("User");
 
-            
+
             ParseQuery<ParseObject> query = ParseQuery.getQuery("_User");
             query.getInBackground(comuser.getObjectId(), (object, e) -> {
                 if (e == null) {
