@@ -27,7 +27,7 @@ import java.util.List;
 public class PostsFragment extends Fragment {
 
     protected RecyclerView rv_View;
-    protected PostsAdapter adapter;
+    public static PostsAdapter adapter;
     protected List<Post> allpost;
     SwipeRefreshLayout swipeContainer;
 
@@ -54,7 +54,7 @@ public class PostsFragment extends Fragment {
         rv_View = view.findViewById(R.id.rv_View);
         allpost = new ArrayList<>();
         adapter = new PostsAdapter(getContext(),allpost);
-
+        rv_View.setNestedScrollingEnabled(false);
         rv_View.setAdapter(adapter);
         LinearLayoutManager layoutManager = new LinearLayoutManager(getContext());
 

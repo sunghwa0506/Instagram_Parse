@@ -8,6 +8,7 @@ import androidx.fragment.app.Fragment;
 import androidx.fragment.app.FragmentManager;
 
 import android.app.ActionBar;
+import android.content.ClipData;
 import android.content.Intent;
 import android.graphics.Bitmap;
 import android.graphics.BitmapFactory;
@@ -103,12 +104,21 @@ public class MainActivity extends AppCompatActivity {
                 Fragment fragment = null;
                 switch (item.getItemId()) {
                     case R.id.btn_homeScreen:
+                        item.setIcon(R.drawable.instagram_home_filled_24);
+                        bottomNavigationView.getMenu().findItem(R.id.btn_addScreen).setIcon(R.drawable.instagram_new_post_outline_24);
+                        bottomNavigationView.getMenu().findItem(R.id.btn_profile).setIcon(R.drawable.instagram_user_outline_24);
                         fragment = new PostsFragment();
                         break;
                     case R.id.btn_addScreen:
+                        item.setIcon(R.drawable.instagram_new_post_filled_24);
+                        bottomNavigationView.getMenu().findItem(R.id.btn_homeScreen).setIcon(R.drawable.instagram_home_outline_24);
+                        bottomNavigationView.getMenu().findItem(R.id.btn_profile).setIcon(R.drawable.instagram_user_outline_24);
                         fragment = new ComposeFragment();
                         break;
                     case R.id.btn_profile:
+                        item.setIcon(R.drawable.instagram_user_filled_24);
+                        bottomNavigationView.getMenu().findItem(R.id.btn_homeScreen).setIcon(R.drawable.instagram_home_outline_24);
+                        bottomNavigationView.getMenu().findItem(R.id.btn_addScreen).setIcon(R.drawable.instagram_new_post_outline_24);
                         fragment = new ProfileFragment();
                         break;
                     default:

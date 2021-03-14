@@ -1,0 +1,75 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:layout_alignParentBottom="true"
+    android:overScrollMode="never"
+    android:scrollbarSize="@dimen/material_emphasis_disabled"
+    android:scrollbarThumbVertical="@color/design_default_color_error"
+    android:scrollbarTrackVertical="@color/black"
+    tools:context=".CommentActivity">
+
+    <androidx.recyclerview.widget.RecyclerView
+        android:id="@+id/comment_rv"
+        android:layout_width="380dp"
+        android:layout_height="585dp"
+        android:layout_above="@+id/linear"
+        android:layout_marginStart="10dp"
+        android:layout_marginTop="10dp"
+        android:layout_marginEnd="9dp"
+        android:layout_marginBottom="43dp"
+        android:nestedScrollingEnabled="false"
+        android:scrollbarAlwaysDrawVerticalTrack="true"
+        android:scrollbarThumbVertical="@drawable/background"
+        android:scrollbarTrackVertical="@color/white"
+        android:scrollbars="vertical">
+        android:scrollbars="vertical"
+        android:animateLayoutChanges="false"
+    </androidx.recyclerview.widget.RecyclerView>
+
+
+    <ProgressBar
+        android:id="@+id/progressBar"
+        style="?android:attr/progressBarStyle"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentStart="true"
+        android:layout_alignParentTop="true"
+        android:layout_centerHorizontal="true"
+        android:layout_marginStart="179dp"
+        android:layout_marginTop="263dp"
+        android:visibility="visible" />
+
+    <LinearLayout
+        android:id="@+id/linear"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_alignParentStart="true"
+        android:layout_alignParentEnd="true"
+        android:layout_alignParentBottom="true"
+        android:layout_centerHorizontal="true"
+        android:layout_marginStart="-4dp"
+        android:layout_marginEnd="4dp"
+        android:layout_marginBottom="0dp"
+        android:orientation="vertical">
+
+        <EditText
+            android:id="@+id/post_comment"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:ems="10"
+            android:gravity="start|top"
+            android:hint="Comment"
+            android:inputType="textMultiLine" />
+
+        <Button
+            android:id="@+id/comment_btn"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="Post" />
+
+    </LinearLayout>
+
+</RelativeLayout>

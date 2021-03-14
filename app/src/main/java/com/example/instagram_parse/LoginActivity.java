@@ -10,6 +10,7 @@ import android.widget.Button;
 import android.widget.EditText;
 import android.widget.Toast;
 
+import com.blogspot.atifsoftwares.animatoolib.Animatoo;
 import com.parse.LogInCallback;
 import com.parse.ParseException;
 import com.parse.ParseUser;
@@ -49,6 +50,20 @@ public class LoginActivity extends AppCompatActivity {
 
         });
 
+
+        btn_sign.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                goSignActivity();
+            }
+        });
+
+    }
+
+    private void goSignActivity() {
+        Intent i = new Intent(this,SignActivity.class);
+        startActivity(i);
+        Animatoo.animateSlideLeft(this);
     }
 
     private void loginUser(String user, String pass) {

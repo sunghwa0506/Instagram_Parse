@@ -5,16 +5,29 @@
     <uses-permission android:name="android.permission.INTERNET" />
     <uses-permission android:name="android.permission.ACCESS_NETWORK_STATE" />
 
+    <uses-feature
+        android:name="android.hardware.camera"
+        android:required="true" />
+
+    <uses-permission
+        android:name="android.permission.WRITE_EXTERNAL_STORAGE"
+        android:maxSdkVersion="18" />
+
     <application
-        android:usesCleartextTraffic="true"
         android:name=".ParseApplication"
         android:allowBackup="true"
         android:icon="@drawable/icon"
         android:label="Instagram"
         android:roundIcon="@drawable/icon"
         android:supportsRtl="true"
-        android:theme="@style/Theme.Instagram_Parse">
+        android:theme="@style/Theme.Instagram_Parse"
+        android:usesCleartextTraffic="true">
+        <activity android:name=".SignActivity">android:windowSoftInputMode="adjustPan"</activity>
+        <activity
+            android:name=".CommentActivity"
+            android:windowSoftInputMode="adjustResize" />
         <activity android:name=".LoginActivity">
+            android:windowSoftInputMode="adjustPan"
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 
@@ -32,11 +45,6 @@
                 android:name="android.support.FILE_PROVIDER_PATHS"
                 android:resource="@xml/fileprovider" />
         </provider>
-
-
     </application>
-    <uses-feature android:name="android.hardware.camera"
-        android:required="true" />
-    <uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE"
-        android:maxSdkVersion="18" />
+
 </manifest>

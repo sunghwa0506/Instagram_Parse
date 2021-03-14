@@ -9,7 +9,7 @@
     <!-- TODO: Update blank fragment layout -->
 
     <ImageView
-        android:id="@+id/profile_image_for_post"
+        android:id="@+id/profile"
         android:layout_width="200dp"
         android:layout_height="200dp"
         android:layout_alignParentTop="true"
@@ -24,14 +24,14 @@
         android:layout_alignParentTop="true"
         android:layout_marginStart="32dp"
         android:layout_marginTop="154dp"
-        android:layout_toEndOf="@+id/profile_image_for_post"
+        android:layout_toEndOf="@+id/profile"
         android:src="@android:drawable/ic_menu_camera" />
 
     <TextView
         android:id="@+id/textView"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_below="@+id/profile_image_for_post"
+        android:layout_below="@+id/profile"
         android:layout_alignParentStart="true"
         android:layout_marginStart="94dp"
         android:layout_marginTop="70dp"
@@ -44,7 +44,7 @@
         android:id="@+id/user_name"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_below="@+id/profile_image_for_post"
+        android:layout_below="@+id/profile"
         android:layout_centerHorizontal="true"
         android:layout_marginStart="25dp"
         android:layout_marginTop="70dp"

@@ -66,7 +66,7 @@ public class AccountFragment extends Fragment {
     public void onViewCreated(@NonNull View view, @Nullable Bundle savedInstanceState) {
         super.onViewCreated(view, savedInstanceState);
 
-        profile_image = view.findViewById(R.id.profile_image_for_post);
+        profile_image = view.findViewById(R.id.profile);
         user_name = view.findViewById(R.id.user_name);
         phone_butn = view.findViewById(R.id.phone_butn);
         save_btn = view.findViewById(R.id.save_btn);

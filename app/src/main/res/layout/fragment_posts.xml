@@ -15,7 +15,10 @@
         <androidx.recyclerview.widget.RecyclerView
             android:id="@+id/rv_View"
             android:layout_width="match_parent"
-            android:layout_height="match_parent" />
+            android:layout_height="match_parent"
+            android:scrollbarThumbVertical="@drawable/background"
+            android:scrollbarTrackVertical="@color/white"
+            android:scrollbars="vertical" />
 
     </androidx.swiperefreshlayout.widget.SwipeRefreshLayout>
 </FrameLayout>

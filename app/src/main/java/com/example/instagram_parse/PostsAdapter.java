@@ -1,24 +1,20 @@
 package com.example.instagram_parse;
 
 import android.content.Context;
-import android.graphics.Bitmap;
-import android.graphics.BitmapFactory;
-import android.graphics.drawable.Drawable;
+import android.content.Intent;
 import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.ImageView;
+import android.widget.ProgressBar;
 import android.widget.TextView;
-import android.widget.Toast;
 
 import androidx.annotation.NonNull;
-import androidx.cardview.widget.CardView;
 import androidx.recyclerview.widget.RecyclerView;
 
+import com.blogspot.atifsoftwares.animatoolib.Animatoo;
 import com.bumptech.glide.Glide;
-import com.google.android.material.textfield.TextInputLayout;
-import com.parse.GetCallback;
 import com.parse.ParseException;
 import com.parse.ParseFile;
 import com.parse.ParseObject;
@@ -33,7 +29,6 @@ public class PostsAdapter extends RecyclerView.Adapter<PostsAdapter.ViewHolder> 
 
     private Context context;
     private List<Post> posts;
-
 
 
 
@@ -71,6 +66,9 @@ public class PostsAdapter extends RecyclerView.Adapter<PostsAdapter.ViewHolder> 
         private ImageView imageView2;
         private TextView num_likes;
         private ImageView profile_image_for_post;
+        private ImageView comments_btn;
+        public TextView num_comment;
+
 
         public ViewHolder(@NonNull View itemView) {
             super(itemView);
@@ -79,7 +77,10 @@ public class PostsAdapter extends RecyclerView.Adapter<PostsAdapter.ViewHolder> 
             post_description = itemView.findViewById(R.id.post_description);
             imageView2 = itemView.findViewById(R.id.imageView2);
             num_likes = itemView.findViewById(R.id.num_likes);
-            profile_image_for_post = itemView.findViewById(R.id.profile_image_for_post);
+            profile_image_for_post = itemView.findViewById(R.id.profile);
+            comments_btn = itemView.findViewById(R.id.comments_btn);
+            num_comment = itemView.findViewById(R.id.num_comment);
+
         }
 
 
@@ -93,6 +94,9 @@ public class PostsAdapter extends RecyclerView.Adapter<PostsAdapter.ViewHolder> 
             }
             check_likes(post);
             click_like(post);
+            LeaveComment(post);
+            getNumberofComment(post);
+
 
             ParseUser post_user = post.getUser();
             ParseQuery<ParseObject> query = ParseQuery.getQuery("_User");
@@ -102,17 +106,38 @@ public class PostsAdapter extends RecyclerView.Adapter<PostsAdapter.ViewHolder> 
                     //Object was successfully retrieved
                     ParseFile temp = object.getParseFile("profile");
                     Glide.with(context).load(temp.getUrl()).into(profile_image_for_post);
-
-
-
                 } else {
                     // something went wrong
                     Log.e("h1231eh", e.getMessage());
                 }
             });
 
-
             }
+
+        private void getNumberofComment(Post post) {
+            ParseQuery<ParseObject> query = ParseQuery.getQuery("Comment");
+            query.whereEqualTo("Post", post.getObjectId());
+            Log.i("hh","comment number "+ post.getObjectId());
+
+            query.countInBackground((count, e) -> {
+                if (e == null) {
+                    if(count>0)
+                    {
+                        num_comment.setVisibility(View.VISIBLE);
+                        num_comment.setText(String.valueOf(count));
+                    }
+                    else
+                    {
+                        num_comment.setVisibility(View.INVISIBLE);
+                    }
+
+
+                } else {
+                    Log.i("hh","comment number "+ e);
+                }
+            });
+
+        }
 
         private void check_likes(Post post) {
             ParseUser user = ParseUser.getCurrentUser();
@@ -215,6 +240,22 @@ public class PostsAdapter extends RecyclerView.Adapter<PostsAdapter.ViewHolder> 
             }
 
         }
+
+        private void LeaveComment(Post post) {
+            comments_btn.setOnClickListener(new View.OnClickListener() {
+                @Override
+                public void onClick(View v) {
+                    Intent i = new Intent(context, CommentActivity.class);
+                    i.putExtra("post",post.getObjectId());
+                    context.startActivity(i);
+                    Animatoo.animateSlideLeft(context);
+                }
+
+            });
+        }
+
+
     }
+
 
 }
